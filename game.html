@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="./css/game.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <div class="overlay flex-center hidden">
+        <div class="complete-message flex-center column">
+            <h1 class="message">Solved in: </h1>
+            <h1 class="timer">
+                00.00 s
+            </h1>
+            <a onclick="reset()" class="waves-effect waves-light btn">New Game!</a>
+        </div>
+    </div>
+    <div class="flex-center column">
+        <h1 class="timer">
+        00.00 s
+        </h1>
+        <hr>
+        <div class="game-border flex-center">
+            <div class="game-container">
+            </div>
+        </div>
+        <h6>Use WASD on your keyboard to move</h6>
+        <a onclick="reset()" class="waves-effect waves-light btn">Reset</a>
+    </div>
+    <!-- Compiled and minified JavaScript -->
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="./js/game.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+.start-page {
+    height: 80vh;
+    max-width: 500px;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.game-container {
+    width: 330px;
+    height: 330px;
+    display: block;
+}
+
+.game-border {
+    width: 336px;
+    height: 336px;
+    border-radius: 2px;
+    background-color: black;
+}
+
+.tiles {
+    width: 110px;
+    height: 110px;
+    background-color: white;
+    border: 2px solid red;
+    position: fixed;
+}
+
+.overlay {
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+}
+
+.complete-message {
+    background-color: white;
+    height: 500px;
+    width: 500px;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
