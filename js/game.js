@@ -1,7 +1,7 @@
 let game_start = false;
 let time = 0;
 let numbers_seq = [];
-let current_black_pos = 8;
+let current_black_pos = 4;
 const grid_margin = ["0 0", "0 110px", "0 220px",
     "110px 0", "110px 110px", "110px 220px",
     "220px 0", "220px 110px", "220px 220px"
@@ -47,14 +47,17 @@ function reset() {
     clearInterval(timer);
     game_start = false;
     $('.timer').text('00.00 s');
-    numbers_seq = [1, 2, 3, 4, 5, 6, 7, 8];
-    numbers_seq.sort(function () {
-        return 0.5 - Math.random()
-    });
-    numbers_seq.push(0);
-    current_black_pos = 8;
+    do {
+        numbers_seq = [1, 2, 3, 4, 5, 6, 7, 8];
+        numbers_seq.sort(function () {
+            return 0.5 - Math.random()
+        });
+        numbers_seq.push(numbers_seq[4]);
+        numbers_seq[4] = 0;
+        current_black_pos = 4;
+    } while (!isSolvable(numbers_seq))
     $('.game-container').html('');
-    for (i = 0; i < 8; i++) {
+    for (i = 0; i < 9; i++) {
         if (numbers_seq[i] != 0) {
             $('.game-container').append('<div class="tiles flex-center" id="t' + numbers_seq[i] + '" style="margin:' + grid_margin[i] + ';"><h3>' + numbers_seq[i] + '</h3></div>');
         }
@@ -112,4 +115,18 @@ function blankMoveRight() {
         numbers_seq[current_black_pos + 1] = 0;
         current_black_pos = current_black_pos + 1;
     }
+}
+
+function isSolvable(seq) {
+    let count = 0;
+    for (let i = 0; i < 9; i++) {
+        for (let j = 1; j < 8; j++) {
+            if (seq[i] > seq[j] && seq[i] != 0 && seq[j] != 0) {
+                count++;
+            }
+        }
+    }
+    console.log(count);
+    console.log(seq);
+    return (count%2 != 0);
 }

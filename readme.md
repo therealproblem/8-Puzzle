@@ -1,3 +1,2 @@
-#Todo
-1. check for solvability
-2. flickering timer
+# Todo
+1. flickering timer
