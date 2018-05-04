@@ -126,7 +126,5 @@ function isSolvable(seq) {
             }
         }
     }
-    console.log(count);
-    console.log(seq);
     return (count%2 != 0);
 }
