@@ -48,13 +48,10 @@ function reset() {
     game_start = false;
     $('.timer').text('00.00 s');
     do {
-        numbers_seq = [1, 2, 3, 4, 5, 6, 7, 8];
+        numbers_seq = [1, 2, 3, 4, 5, 6, 7, 8, 0];
         numbers_seq.sort(function () {
             return 0.5 - Math.random()
         });
-        numbers_seq.push(numbers_seq[4]);
-        numbers_seq[4] = 0;
-        current_black_pos = 4;
     } while (!isSolvable(numbers_seq))
     $('.game-container').html('');
     for (i = 0; i < 9; i++) {
@@ -120,11 +117,14 @@ function blankMoveRight() {
 function isSolvable(seq) {
     let count = 0;
     for (let i = 0; i < 9; i++) {
-        for (let j = 1; j < 8; j++) {
+        if (seq[i] == 0) {
+            current_black_pos = i;
+        }
+        for (let j = i + 1; j < 8; j++) {
             if (seq[i] > seq[j] && seq[i] != 0 && seq[j] != 0) {
                 count++;
             }
         }
     }
-    return (count%2 != 0);
+    return (count % 2 == 0);
 }
